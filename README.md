@@ -1,17 +1,8 @@
 # xmas-baubles
 
-Code for my Xmas Smart Baubles based on Gosse Adema's instructable, with the addition of MQTT taken from corbanmailloux.
+This project adds an easy way to control LED Xmas Smart Baubles from [Home Assistant](https://home-assistant.io/), an amazing, extensible, open-source home automation system.
 
-## Inspiration
-
-- [Gosse Adema](http://www.instructables.com/id/Illuminated-Christmas-Tree-Ornament-WiFi-Controlle/)
-- [corbanmailloux](https://github.com/corbanmailloux/esp-mqtt-rgb-led)
-
-# ESP8266 MQTT RGB LEDs Using JSON for Home Assistant
-
-This project adds an easy way to control LED Xmas Smart Baubles create from [Home Assistant](https://home-assistant.io/), an amazing, extensible, open-source home automation system.
-
-I followed Gosse Adema's [instructable](http://www.instructables.com/id/Illuminated-Christmas-Tree-Ornament-WiFi-Controlle/) but wanted to be able to control the baubles from Home Assistant, so I adapted the code with extracts from corbanmailloux's [esp-mqtt-rgb-led project](https://github.com/corbanmailloux/esp-mqtt-rgb-led).
+I followed Gosse Adema's [instructable](http://www.instructables.com/id/Illuminated-Christmas-Tree-Ornament-WiFi-Controlle/) to create the baubles and his origical code but wanted to change the effects and wanted to be able to control the baubles from Home Assistant, so I adapted the code and took extracts from corbanmailloux's [esp-mqtt-rgb-led project](https://github.com/corbanmailloux/esp-mqtt-rgb-led).
 As of version 0.26, the [MQTT JSON light platform](https://home-assistant.io/components/light.mqtt_json/) has been merged into Home Assistant.
 
 By sending a JSON payload (in an MQTT message), Home Assistant can include whichever fields are necessary, reducing the round trips from 3 to 1. For example, this is a sample payload including most of the fields:
