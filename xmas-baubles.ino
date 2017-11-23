@@ -40,7 +40,6 @@ int countColors = 0;
 int numColors = 18;
 int FlashMode = 1;
 String FlashModeText = "Sparkle";
-bool WemosStatus = true;
 
 // Buttons text colors and initial values
 String buttonColor [2] = {"white", "black"};
@@ -119,7 +118,7 @@ int nextColor (int lastColor)
 // interrupt os-timer
 void timerCallback(void *pArg) 
 {
-  if (WemosStatus)
+  if (stateOn)
   {
     switch (FlashMode)
     {
@@ -249,20 +248,19 @@ void setup(void){
                  showPage (); });
 
   server.on ("/off", [](){
-                WemosStatus = false;    
+                stateOn = false;    
                  showPage (); });
 
   server.on ("/on", [](){
-                WemosStatus = true;    
+                stateOn = true;    
                  showPage (); });
 
   server.on ("/sparkle", []()
   {
-    WemosStatus = true;
+    stateOn = true;
     FlashMode = 1;
     waitTime = 1;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
-    stateOn = true;
     sendState();
     showPage ();
   }
@@ -270,11 +268,10 @@ void setup(void){
 
   server.on ("/rainbow", []()
   {
-    WemosStatus = true;
+    stateOn = true;
     FlashMode = 2;
     waitTime = 5;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
-    stateOn = true;
     sendState();
     showPage ();
   }
@@ -282,11 +279,10 @@ void setup(void){
 
   server.on ("/uniglow", []()
   {
-    WemosStatus = true;
+    stateOn = true;
     FlashMode = 3;
     waitTime = 5;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
-    stateOn = true;
     sendState();
     showPage ();
   }
@@ -316,17 +312,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     return;
   }
 
-  if (stateOn) {
-    // Update lights
-    WemosStatus = true;    
-    showPage ();
-  }
-  else {
-    WemosStatus = false;    
-    showPage ();
-  }
-
-
+  showPage ();
   sendState();
 }
 
@@ -350,24 +336,22 @@ bool processJson(char* message) {
     }
   }
 
-  // If "flash" is included, treat RGB and brightness differently
-
   if ((root.containsKey("effect") && strcmp(root["effect"], "sparkle") == 0)) {
-    WemosStatus = true;
+    stateOn = true;
     FlashMode = 1;
     waitTime = 1;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
     showPage ();
    }
   else if ((root.containsKey("effect") && strcmp(root["effect"], "rainbow") == 0)) {
-    WemosStatus = true;
+    stateOn = true;
     FlashMode = 2;
     waitTime = 5;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
     showPage ();
    }
   else if ((root.containsKey("effect") && strcmp(root["effect"], "uniglow") == 0)) {
-    WemosStatus = true;
+    stateOn = true;
     FlashMode = 3;
     waitTime = 5;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
