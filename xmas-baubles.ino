@@ -294,6 +294,9 @@ void setup(void){
 
   server.begin();
   Serial.println("HTTP server started");
+  if (!client.connected()) {
+    reconnect();
+  }
   sendState();
   }
 
