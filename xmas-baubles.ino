@@ -270,7 +270,7 @@ void setup(void){
   {
     stateOn = true;
     FlashMode = 2;
-    waitTime = 5;
+    waitTime = 7;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
     sendState();
     showPage ();
@@ -281,7 +281,7 @@ void setup(void){
   {
     stateOn = true;
     FlashMode = 3;
-    waitTime = 5;
+    waitTime = 7;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
     sendState();
     showPage ();
@@ -346,14 +346,14 @@ bool processJson(char* message) {
   else if ((root.containsKey("effect") && strcmp(root["effect"], "rainbow") == 0)) {
     stateOn = true;
     FlashMode = 2;
-    waitTime = 5;
+    waitTime = 7;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
     showPage ();
    }
   else if ((root.containsKey("effect") && strcmp(root["effect"], "uniglow") == 0)) {
     stateOn = true;
     FlashMode = 3;
-    waitTime = 5;
+    waitTime = 7;
     os_timer_arm(&osTimer, waitTimes[waitTime], true);
     showPage ();
    }
