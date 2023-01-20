@@ -1,7 +1,0 @@
-name: Bug Report Add-On Version
-description: File a bug report for the Home Assistant Add-On
-body:
-  - type: markdown
-    attributes:
-      value: |
-        To file a report for the miscale Home Assistant Add-On, please click [here](https://github.com/lolouk44/hassio-addons/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5BBug%5D%3A+)
