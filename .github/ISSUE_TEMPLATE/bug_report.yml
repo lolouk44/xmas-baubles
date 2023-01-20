@@ -41,7 +41,7 @@ body:
     attributes:
       label: Scale
       description: Please provide scale name and model.
-      placeholder: Example: Mi Scale V2 XMTZCO1HM
+      placeholder: Example Mi Scale V2 XMTZCO1HM
     validations:
       required: true
   - type: dropdown
