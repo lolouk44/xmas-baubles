@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a bug for the Home Assistant Add On
+    url: https://github.com/lolouk44/hassio-addons/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5BBug%5D%3A+
+    about: Report a bug for the Home Assistant Add On
