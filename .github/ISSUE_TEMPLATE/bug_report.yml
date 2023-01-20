@@ -1,6 +1,5 @@
-name: Bug Report
+name: Bug Report (not Add-On Version)
 description: File a bug report
-title: "[Bug]: "
 labels: ["bug"]
 body:
   - type: markdown
@@ -21,8 +20,6 @@ body:
       label: To Reproduce
       description: Steps to reproduce the behaviour, including error message if any.
       placeholder: Explain how/when it happens.
-    validations:
-      required: true
   - type: textarea
     id: logs
     attributes:
@@ -34,7 +31,7 @@ body:
     attributes:
       label: Expected behaviour
       description: A clear and concise description of what you expected to happen.
-      placeholder: Explain what should happenTell us what you see!
+      placeholder: Explain what should happen.
   - type: input
     id: scale-info
     attributes:
@@ -49,6 +46,7 @@ body:
       label: Installation
       description: How is the miscale installed and running?
       options:
+        - Select
         - Docker
         - Github Clone
     validations:
@@ -56,9 +54,10 @@ body:
   - type: dropdown
     id: computer
     attributes:
-      label: Device used to run the Script/Container
+      label: Device used
       description: What device does this program runs on?
       options:
+        - Select
         - Computer/Laptop
         - Raspberry Pi
     validations:
@@ -69,6 +68,7 @@ body:
       label: Bluetooth
       description: Which bluetooth radio is used?
       options:
+        - Select
         - Built-In
         - USB Dongle
     validations:
